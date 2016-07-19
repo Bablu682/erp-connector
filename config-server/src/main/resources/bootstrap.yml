@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: config-server
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+  file: C:/Users/cprajaba/Desktop/Latest/logfiles/config-server.log
+#C:/Drives/Hell/POC/Erp Connector Collection/By sunil sir/plmlogs/config-server.log
+#${HOME}/site/wwwroot/pologs/config-server.log
