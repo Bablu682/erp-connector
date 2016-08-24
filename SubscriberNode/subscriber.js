@@ -18,7 +18,7 @@ serviceBusService.receiveQueueMessage('testqueue',{ isPeekLock: true },  functio
     	
     	loggy.info("Sending xml data to microservice begins.");
     	request.post(
-    		    'http://10.109.218.6:9090/receiveXml',
+    		    'http://10.229.190.41:9090/receiveXml',
     		    { form: { 'xml': xmlMessage } },
     		    function (error, response, body) {
     		        if (!error && response.statusCode == 200) {

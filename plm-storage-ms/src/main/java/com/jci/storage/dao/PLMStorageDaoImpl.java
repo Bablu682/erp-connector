@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
-import com.jci.storage.domain.Payload;
+import com.jci.storage.domain.PLMPayload;
 import com.microsoft.windowsazure.services.blob.client.CloudBlobClient;
 import com.microsoft.windowsazure.services.blob.client.CloudBlobContainer;
 import com.microsoft.windowsazure.services.blob.client.CloudBlockBlob;
@@ -22,14 +22,14 @@ public class PLMStorageDaoImpl implements PLMStorageDao {
 			+ "AccountKey=GQZDOpTxJwebJU7n3kjT2VZP1mXCY6QXzVoCZGIsCdvU6rX7E8M5S24+Ki4aYqD2AwK1DnUh6ivlbaVKR7NOTQ==";
 
 	@Override
-	public String PutXmlBom(HashMap<String, String> xml) {
+	public String PutXmlBom(HashMap<String, Object> xml) {
 		
 		
 		
 		
 		try {
 
-			File file = new File("Payload.xml");
+			File file = new File("PayloadForBlob.xml");
 			if (!file.exists()) {
 				file.createNewFile();
 			}
@@ -38,7 +38,7 @@ public class PLMStorageDaoImpl implements PLMStorageDao {
 			BufferedWriter bw = new BufferedWriter(fw);
 			
 		
-			bw.write(xml.get("xml"));
+			bw.write(xml.get("xml").toString());
 		
 			bw.close();
 
@@ -48,8 +48,8 @@ public class PLMStorageDaoImpl implements PLMStorageDao {
 			CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 			CloudBlobContainer container = blobClient.getContainerReference("plmcontainer2");
 			container.createIfNotExist();
-			String filePath = "Payload.xml";
-			CloudBlockBlob blob = container.getBlockBlobReference("Payload.xml");
+			String filePath = "PayloadForBlob.xml";
+			CloudBlockBlob blob = container.getBlockBlobReference("PayloadForBlob.xml");
 			java.io.File source = new java.io.File(filePath);
 			java.io.FileInputStream fileInputStream = new java.io.FileInputStream(source);
 			blob.upload(fileInputStream, source.length());
@@ -60,7 +60,7 @@ public class PLMStorageDaoImpl implements PLMStorageDao {
 		return null;
 	}
 
-	@Override
+	/*@Override
 	public String PutjsonBom(String json) {
 		
 		try {
@@ -78,7 +78,7 @@ public class PLMStorageDaoImpl implements PLMStorageDao {
 
 			cloudTable = tableClient.getTableReference("BOMJSON1");
 
-			Payload header = new Payload("ecnNo", "ecnName");
+			PLMPayload header = new PLMPayload("ecnNo", "ecnName");
 			header.setPayload(json);
 
 			TableOperation insertCustomer1 = TableOperation.insertOrReplace(header);
@@ -92,7 +92,7 @@ public class PLMStorageDaoImpl implements PLMStorageDao {
 		
 		
 		return null;
-	}
+	}*/
 
 	
 }

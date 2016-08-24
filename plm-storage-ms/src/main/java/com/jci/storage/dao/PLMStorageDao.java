@@ -5,11 +5,11 @@ import java.util.HashMap;
 public interface PLMStorageDao {
 	
 	
-	String PutXmlBom(HashMap<String, String> xml);
+	String PutXmlBom(HashMap<String, Object> xml);
 
 	
 
-	String PutjsonBom(String json);
+//	String PutjsonBom(String json);
 
 	
 }

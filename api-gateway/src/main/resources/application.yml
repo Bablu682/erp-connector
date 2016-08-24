@@ -1,5 +1,9 @@
-logging:
-  level:
-     org:
-       springframework:
-         security: DEBUG
+#spring.application.name=api-gateway
+#server.port=8765
+
+
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 8765

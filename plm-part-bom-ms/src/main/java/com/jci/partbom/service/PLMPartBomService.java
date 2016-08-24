@@ -8,6 +8,8 @@ public interface PLMPartBomService {
 	String partApiCallInApigee();
 	
 	String jsonSendToStorage(HashMap<String,Object> jsonXml);
+	
+	public String hystrixCircuitBreaker();
 
 
 	

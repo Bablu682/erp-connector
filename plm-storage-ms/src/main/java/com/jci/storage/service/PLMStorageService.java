@@ -4,7 +4,9 @@ import java.util.HashMap;
 
 public interface PLMStorageService {
 
-	String PutXmlBom(HashMap<String, String> mvm);  //xml from Subscriber
+	String PutXmlPartBom(HashMap<String, Object> mvm);  //xml from Subscriber
 	
-	String PutJsonBom(String json);  //json from bom
+//	String PutJsonBom(String json);  //json from bom
+
+	String hystrixCircuitBreaker();
 }

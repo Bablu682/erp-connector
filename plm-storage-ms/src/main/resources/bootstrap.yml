@@ -1,3 +1,5 @@
+ 
+
 spring:
   application:
   
@@ -11,3 +13,7 @@ spring:
 # Define the URL from where this service would pick up it's external configuration. Note that it is
 # pointing to the config-server aplication      
       uri: http://localhost:8888
+ 
+ 
+
+  
